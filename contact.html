@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book / Call — Fofana Express Hair Braiding in Harlem." />
+  <title>Contact — Fofana Express Hair Braiding</title>
+
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body class="contact-page">
+  <div class="page">
+    <header class="site-header" id="siteHeader"></header>
+
+    <main class="contact-main">
+      <section class="contact-shell" aria-label="Contact page">
+        <div class="container">
+
+          <div class="contact-head">
+            <div class="contact-kicker">CONTACT</div>
+            <h1 class="contact-title">Book / Call</h1>
+            <p class="contact-lead">
+              Walk-ins and appointments welcome. Reach us directly or send a quick request.
+            </p>
+          </div>
+
+          <article class="contact-card contact-card--light" aria-label="Address and phone">
+            <div class="card-kicker">VISIT / CALL</div>
+            <h2 class="card-title">611 Lenox Ave • Harlem, NY</h2>
+
+            <div class="contact-info-grid">
+              <div class="info-block">
+                <div class="info-label">Main number</div>
+                <a class="info-phone" href="tel:6463995042">(646) 399-5042</a>
+              </div>
+
+              <div class="info-block">
+                <div class="info-label">Secondary</div>
+                <a class="info-phone" href="tel:6466484213">(646) 648-4213</a>
+              </div>
+
+              <div class="info-block">
+                <div class="info-label">Hours</div>
+                <div class="info-text">Open 7 days</div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:6463995042">Call now</a>
+              <a class="btn btn-ghost" href="sms:6463995042">Text now</a>
+              <a class="btn btn-ghost"
+                 href="https://www.google.com/maps/dir/?api=1&destination=611+Lenox+Ave,+New+York,+NY"
+                 target="_blank" rel="noopener">
+                Get directions
+              </a>
+            </div>
+          </article>
+
+          <article class="contact-card contact-card--light contact-card--map" aria-label="Map">
+            <div class="card-kicker">MAP</div>
+            <h2 class="card-title">Find us fast</h2>
+
+            <div class="map-frame" aria-label="Google map">
+              <iframe
+                title="611 Lenox Ave map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=611%20Lenox%20Ave%2C%20New%20York%2C%20NY&output=embed">
+              </iframe>
+            </div>
+          </article>
+
+          <article class="contact-card contact-card--soft" aria-label="Booking form">
+            <div class="card-kicker">REQUEST</div>
+            <h2 class="card-title">Send a booking request</h2>
+            <p class="card-text">
+              Fill this out, then tap <strong>Text request</strong> to open a pre-filled message.
+            </p>
+
+            <form class="booking-form" onsubmit="return false;">
+              <div class="field-row field-row--three">
+                <label class="field">
+                  <span class="label">Name</span>
+                  <input id="bkName" type="text" placeholder="Your name" autocomplete="name">
+                </label>
+
+                <label class="field">
+                  <span class="label">Phone</span>
+                  <input id="bkPhone" type="tel" placeholder="(###) ###-####" autocomplete="tel">
+                </label>
+
+                <label class="field">
+                  <span class="label">Style</span>
+                  <select id="bkStyle">
+                    <option value="Knotless">Knotless</option>
+                    <option value="Box Braids">Box Braids</option>
+                    <option value="Cornrows">Cornrows</option>
+                    <option value="Twists">Twists</option>
+                    <option value="Kids">Kids</option>
+                    <option value="Men">Men</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label class="field">
+                  <span class="label">Preferred day</span>
+                  <input id="bkDate" type="date">
+                </label>
+
+                <label class="field">
+                  <span class="label">Preferred time</span>
+                  <input id="bkTime" type="time">
+                </label>
+              </div>
+
+              <label class="field">
+                <span class="label">Notes</span>
+                <input id="bkNotes" type="text" placeholder="Length, size, color, add-ons…">
+              </label>
+
+              <div class="booking-actions">
+                <a id="bkTextLink" class="btn btn-primary booking-cta" href="sms:6463995042">
+                  Text request
+                </a>
+              </div>
+            </form>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+  </div>
+
+  <script src="js/site.js"></script>
+
+  <script>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+
+      const buildMessage = () => {
+        const name  = ($("bkName").value || "").trim();
+        const phone = ($("bkPhone").value || "").trim();
+        const style = ($("bkStyle").value || "").trim();
+        const date  = ($("bkDate").value || "").trim();
+        const time  = ($("bkTime").value || "").trim();
+        const notes = ($("bkNotes").value || "").trim();
+
+        const parts = [];
+        parts.push("Booking request — Fofana Express Hair Braiding");
+        if (name)  parts.push("Name: " + name);
+        if (phone) parts.push("My phone: " + phone);
+        if (style) parts.push("Style: " + style);
+        if (date)  parts.push("Date: " + date);
+        if (time)  parts.push("Time: " + time);
+        if (notes) parts.push("Notes: " + notes);
+
+        return parts.join("\\n");
+      };
+
+      const updateLink = () => {
+        const body = encodeURIComponent(buildMessage());
+        $("bkTextLink").href = "sms:6463995042?body=" + body;
+      };
+
+      ["bkName","bkPhone","bkStyle","bkDate","bkTime","bkNotes"].forEach(id => {
+        const el = $(id);
+        if (!el) return;
+        el.addEventListener("input", updateLink);
+        el.addEventListener("change", updateLink);
+      });
+
+      updateLink();
+    })();
+  </script>
+</body>
+</html>
