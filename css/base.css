@@ -1,0 +1,370 @@
+/* =========================================================
+   BASE.CSS — Shared structure
+   Mobile stability lock
+   ========================================================= */
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body{
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.page{
+  display: block;
+  min-height: 0;
+}
+
+main{
+  display: block;
+}
+
+.container{
+  width: min(var(--container), calc(100% - (var(--pad) * 2)));
+  margin-inline: auto;
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  min-height: 40px;
+  padding: 8px 15px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 740;
+  font-size: 13px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 16px rgba(0,0,0,.08);
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.10);
+}
+
+.btn-primary{
+  background: var(--gold-2);
+  color: rgba(30,27,22,.92);
+}
+
+.btn-ghost{
+  background: rgba(255,255,255,.66);
+  color: rgba(30,27,22,.84);
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(239,236,227,.82);
+  border-bottom: 1px solid rgba(0,0,0,.04);
+  backdrop-filter: blur(7px);
+}
+
+.header-inner{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.brand-mark{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(212,175,55,.76);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 840;
+  letter-spacing: .02em;
+  flex: 0 0 auto;
+  font-size: 12px;
+}
+
+.brand-name{
+  font-weight: 750;
+  font-size: 12px;
+  letter-spacing: .01em;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 670;
+  color: rgba(30,27,22,.70);
+  min-width: 0;
+}
+
+.nav a{
+  padding: 5px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+
+.nav a.is-active{
+  background: rgba(212,175,55,.18);
+  color: rgba(30,27,22,.90);
+  border: 1px solid rgba(212,175,55,.28);
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.socials{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon-btn{
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.58);
+  border: 1px solid rgba(30,27,22,.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.icon-btn svg{
+  width: 14px;
+  height: 14px;
+  fill: rgba(30,27,22,.82);
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  margin: 0;
+  padding: 7px 0 8px;
+  border-top: 1px solid rgba(0,0,0,.03);
+  background: rgba(239,236,227,.54);
+}
+
+.footer-inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-one-line{
+  font-weight: 620;
+  font-size: 11px;
+  color: rgba(30,27,22,.72);
+  line-height: 1.1;
+  white-space: normal;
+  max-width: 100%;
+}
+
+/* ---------- Desktop tightening ---------- */
+@media (max-width: 1280px){
+  .header-inner{ gap: 6px; }
+
+  .brand-name{ font-size: 11px; }
+
+  .nav{ gap: 5px; }
+
+  .nav a{
+    padding: 5px 6px;
+    font-size: 11px;
+  }
+
+  .icon-btn{
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ---------- Mobile stability lock ---------- */
+@media (max-width: 700px){
+  
+  .site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(239,236,227,.99);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  backdrop-filter: none;
+}
+  .header-inner{
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand right"
+      "nav nav";
+    align-items: center;
+    gap: 7px 10px;
+    padding: 9px 12px;
+  }
+
+  .brand{
+    grid-area: brand;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .brand-mark{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 11px;
+    flex: 0 0 32px;
+  }
+
+  .brand-name{
+    font-size: 14px;
+    line-height: 1.12;
+    font-weight: 800;
+    color: rgba(20,18,16,.99);
+    min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-right{
+    grid-area: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .socials{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn{
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    background: rgba(255,255,255,.94);
+    border: 1px solid rgba(20,18,16,.18);
+  }
+
+  .icon-btn svg{
+    width: 15px;
+    height: 15px;
+    fill: rgba(20,18,16,.97);
+  }
+
+  .nav{
+    grid-area: nav;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+    color: rgba(20,18,16,.94);
+    font-weight: 800;
+  }
+
+  .nav a{
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    font-size: 13px;
+    line-height: 1.12;
+    font-weight: 800;
+    color: rgba(20,18,16,.98);
+    border-radius: 8px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .nav a.is-active{
+    background: rgba(212,175,55,.26);
+    color: rgba(20,18,16,.99);
+    border: 1px solid rgba(212,175,55,.36);
+  }
+
+  .site-footer{
+    padding: 6px 0 7px;
+    background: rgba(239,236,227,.90);
+  }
+
+  .footer-inner{
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 12px;
+  }
+
+  .footer-one-line{
+    font-size: 10px;
+    line-height: 1.12;
+    font-weight: 600;
+    max-width: 100%;
+  }
+}
