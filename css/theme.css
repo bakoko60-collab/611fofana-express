@@ -1,0 +1,28 @@
+/* =========================================================
+   THEME.CSS — Global theme tokens only
+   ========================================================= */
+
+:root{
+  --bg: #c8cfc7;
+  --ink: #1e1b16;
+  --muted: rgba(30,27,22,.68);
+
+  --gold: #d4af37;
+  --gold-2: rgba(212,175,55,.55);
+
+  --line: rgba(30,27,22,.12);
+  --card: rgba(255,255,255,.16);
+  --shadow: 0 18px 38px rgba(0,0,0,.10);
+
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  --container: 1160px;
+  --pad: 24px;
+}
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}

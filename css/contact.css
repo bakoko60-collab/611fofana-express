@@ -1,0 +1,265 @@
+/* =========================================================
+   CONTACT.CSS — 3-container contact rebuild
+   ========================================================= */
+
+.contact-main{
+  padding: 0;
+}
+
+.contact-shell{
+  padding: 14px 0 28px;
+}
+
+.contact-head{
+  margin-bottom: 16px;
+}
+
+.contact-kicker{
+  margin-bottom: 6px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  font-size: 11px;
+  color: rgba(30,27,22,.55);
+}
+
+.contact-title{
+  margin: 0 0 6px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 950;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  color: rgba(30,27,22,.96);
+}
+
+.contact-lead{
+  margin: 0;
+  max-width: 58ch;
+  font-size: 14px;
+  color: rgba(30,27,22,.72);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.contact-card{
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.contact-card--light{
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+.contact-card--soft{
+  background:
+    radial-gradient(900px 420px at 30% 0%, rgba(212,175,55,.12), rgba(0,0,0,0) 70%),
+    linear-gradient(180deg, rgba(239,236,227,.96) 0%, rgba(230,226,216,.96) 100%);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  color: rgba(30,27,22,.92);
+}
+
+.card-kicker{
+  margin-bottom: 8px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  font-size: 10px;
+  color: rgba(30,27,22,.55);
+}
+
+.card-title{
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 900;
+  color: rgba(20,18,16,.94);
+}
+
+.card-text{
+  margin: 0 0 12px;
+  color: rgba(30,27,22,.72);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+/* ---------- combined info block ---------- */
+.contact-info-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.info-block{
+  background: rgba(255,255,255,.34);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.info-label{
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  color: rgba(30,27,22,.56);
+}
+
+.info-phone{
+  font-size: 17px;
+  font-weight: 900;
+  color: rgba(30,27,22,.92);
+}
+
+.info-text{
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(30,27,22,.84);
+}
+
+.contact-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-actions .btn{
+  flex: 1 1 180px;
+  justify-content: center;
+}
+
+/* ---------- map ---------- */
+.map-frame{
+  margin-top: 10px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.55);
+}
+
+.map-frame iframe{
+  width: 100%;
+  height: 220px;
+  border: 0;
+  display: block;
+}
+
+/* ---------- booking form ---------- */
+.booking-form{
+  display: grid;
+  gap: 12px;
+}
+
+.field-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field-row--three{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.field{
+  display: grid;
+  gap: 6px;
+}
+
+.label{
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(30,27,22,.68);
+  letter-spacing: .02em;
+}
+
+input, select{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.78);
+  color: rgba(30,27,22,.92);
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input::placeholder{
+  color: rgba(30,27,22,.44);
+}
+
+.booking-actions{
+  display: flex;
+  margin-top: 2px;
+}
+
+.booking-cta{
+  width: 100%;
+  justify-content: center;
+  padding: 14px 16px;
+  min-height: 46px;
+  font-weight: 900;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px){
+  .contact-info-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-row--three{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px){
+  .contact-info-grid,
+  .field-row,
+  .field-row--three{
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame iframe{
+    height: 250px;
+  }
+}
+
+@media (max-width: 520px){
+  .contact-shell{
+    padding: 16px 0 24px;
+  }
+
+  .contact-head{
+    margin-bottom: 14px;
+  }
+
+  .contact-title{
+    font-size: 28px;
+  }
+
+  .contact-lead{
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contact-card{
+    padding: 14px;
+    border-radius: 18px;
+    margin-bottom: 14px;
+  }
+
+  .card-title{
+    font-size: 22px;
+  }
+
+  .info-phone{
+    font-size: 16px;
+  }
+
+  .map-frame iframe{
+    height: 230px;
+  }
+}
