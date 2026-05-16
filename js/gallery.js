@@ -19,12 +19,21 @@
   ];
 
   const STARTING_PRICES = {
-    knotless: "From $200–$500",
-    boxbraids: "From $200–$500",
-    twists: "From $200–$500",
-    cornrows: "From $180–$300",
-    kids: "From $100–$200",
-    men: "From $80–$160",
+    knotless: "From $200",
+    boxbraids: "From $200",
+    twists: "From $200",
+    cornrows: "From $180",
+    kids: "From $100",
+    men: "From $80",
+  };
+
+  const DURATIONS = {
+    knotless: "5–8 hrs",
+    boxbraids: "3–6 hrs",
+    twists: "3–5 hrs",
+    cornrows: "2–4 hrs",
+    kids: "1–3 hrs",
+    men: "1–2 hrs",
   };
 
   const BOOKING_NOTES = [
