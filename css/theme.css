@@ -1,14 +1,16 @@
-/* =========================================================
+/* =====================================================
    THEME.CSS — Global theme tokens only
-   ========================================================= */
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 :root{
   --bg: #c8cfc7;
   --ink: #1e1b16;
   --muted: rgba(30,27,22,.68);
 
-  --gold: #d4af37;
-  --gold-2: rgba(212,175,55,.55);
+  --gold: #b8962e;
+  --gold-2: rgba(184,150,46,.55);
 
   --line: rgba(30,27,22,.12);
   --card: rgba(255,255,255,.16);
@@ -19,10 +21,24 @@
 
   --container: 1160px;
   --pad: 24px;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
 body{
   margin: 0;
   background: var(--bg);
   color: var(--ink);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.01em;
+}
+
+.hero-kicker,
+.cat-kicker,
+.about-kicker,
+.section-kicker {
+  letter-spacing: 0.15em;
 }
