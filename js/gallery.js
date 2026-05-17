@@ -215,6 +215,10 @@
                 <span>${STARTING_PRICES[catKey] || "Call for price"}</span>
               </div>
               <div class="lb-row">
+                <span>Duration</span>
+                <span>${DURATIONS[catKey] || "Call to confirm"}</span>
+              </div>
+              <div class="lb-row">
                 <span>Braider</span>
                 <span id="lbBraider">Assigned stylist</span>
               </div>
