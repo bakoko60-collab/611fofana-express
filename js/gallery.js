@@ -18,13 +18,22 @@
     { key: "twists",    label: "Twists" },
   ];
 
-  const STARTING_PRICES = {
+ const STARTING_PRICES = {
     knotless: "From $200–$500",
     boxbraids: "From $200–$500",
     twists: "From $200–$500",
     cornrows: "From $180–$300",
     kids: "From $100–$200",
     men: "From $80–$160",
+  };
+
+  const TILE_PRICES = {
+    knotless: "From $200",
+    boxbraids: "From $200",
+    twists: "From $200",
+    cornrows: "From $180",
+    kids: "From $100",
+    men: "From $80",
   };
 
   const DURATIONS = {
@@ -116,12 +125,17 @@
       img.alt = cat.label;
       img.onerror = () => img.removeAttribute("src");
 
-      const label = document.createElement("div");
+    const label = document.createElement("div");
       label.className = "cat-label";
       label.textContent = cat.label;
 
+      const price = document.createElement("div");
+      price.className = "cat-price";
+      price.textContent = TILE_PRICES[cat.key] || "";
+
       card.appendChild(img);
       card.appendChild(label);
+      card.appendChild(price);
       grid.appendChild(card);
     }
   }

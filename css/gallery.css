@@ -171,4 +171,12 @@
     padding: 10px;
     border-radius: 18px;
   }
+  .cat-price {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  padding-bottom: 4px;
+}
 }
