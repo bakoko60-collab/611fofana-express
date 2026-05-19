@@ -413,4 +413,65 @@
     gap: 2px;
   }
 }
+.team-grid-section {
+  padding: 60px 0;
+}
+
+.team-grid-title {
+  font-size: 2rem;
+  margin: 8px 0 8px;
+}
+
+.team-grid-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.braider-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.braider-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 auto 12px;
+}
+
+.braider-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.braider-styles {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 }
