@@ -19,7 +19,7 @@
   const headerHTML = `
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Fofana Express Hair Braiding home">
-        <div class="brand-mark">FB</div>
+        <div class="brand-mark">FE</div>
         <div class="brand-name">Fofana Express Hair Braiding</div>
       </a>
 
