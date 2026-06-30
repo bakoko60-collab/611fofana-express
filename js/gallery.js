@@ -18,39 +18,6 @@
     { key: "twists",    label: "Twists" },
   ];
 
- const STARTING_PRICES = {
-    knotless: "From $200–$500",
-    boxbraids: "From $200–$500",
-    twists: "From $200–$500",
-    cornrows: "From $180–$300",
-    kids: "From $100–$200",
-    men: "From $80–$160",
-  };
-
-  const TILE_PRICES = {
-    knotless: "From $200",
-    boxbraids: "From $200",
-    twists: "From $200",
-    cornrows: "From $180",
-    kids: "From $100",
-    men: "From $80",
-  };
-
-  const DURATIONS = {
-    knotless: "5–8 hrs",
-    boxbraids: "3–6 hrs",
-    twists: "3–5 hrs",
-    cornrows: "2–4 hrs",
-    kids: "1–3 hrs",
-    men: "1–2 hrs",
-  };
-
-  const BOOKING_NOTES = [
-    "Bring a reference photo if you have one.",
-    "Wash & blow-dry recommended before appointment.",
-    "Exact price depends on length & size — call/text to confirm.",
-  ];
-
   const LOCATION_LABEL = "Harlem, NYC";
   const MAIN_PHONE_TEL = "tel:6463995042";
 
@@ -125,17 +92,12 @@
       img.alt = cat.label;
       img.onerror = () => img.removeAttribute("src");
 
-    const label = document.createElement("div");
+      const label = document.createElement("div");
       label.className = "cat-label";
       label.textContent = cat.label;
 
-      const price = document.createElement("div");
-      price.className = "cat-price";
-      price.textContent = TILE_PRICES[cat.key] || "";
-
       card.appendChild(img);
       card.appendChild(label);
-      card.appendChild(price);
       grid.appendChild(card);
     }
   }
@@ -225,14 +187,6 @@
 
             <div class="lb-rows">
               <div class="lb-row">
-                <span>Price</span>
-                <span>${STARTING_PRICES[catKey] || "Call for price"}</span>
-              </div>
-              <div class="lb-row">
-                <span>Duration</span>
-                <span>${DURATIONS[catKey] || "Call to confirm"}</span>
-              </div>
-              <div class="lb-row">
                 <span>Braider</span>
                 <span id="lbBraider">Assigned stylist</span>
               </div>
@@ -240,13 +194,6 @@
                 <span>Location</span>
                 <span>${LOCATION_LABEL}</span>
               </div>
-            </div>
-
-            <div class="lb-notes">
-              <div class="lb-notes-title">Booking notes</div>
-              <ul class="lb-notes-list">
-                ${BOOKING_NOTES.map((item) => `<li>${item}</li>`).join("")}
-              </ul>
             </div>
 
             <a class="lb-big-btn" href="${MAIN_PHONE_TEL}">Book This Style</a>
