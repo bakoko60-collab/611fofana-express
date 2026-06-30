@@ -53,7 +53,7 @@
   const footerHTML = `
     <div class="container footer-inner">
       <div class="footer-one-line">
-        Fofana Express Hair Braiding · © <span id="year"></span> · Harlem, New York
+        Fofana Express Hair Braiding · © <span id="year"></span> · 611 Lenox Ave, Harlem, NY
       </div>
     </div>
   `;
