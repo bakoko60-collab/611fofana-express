@@ -18,6 +18,21 @@
     { key: "twists",    label: "Twists" },
   ];
 
+  const STARTING_PRICES = {
+    knotless: "From $200–$500",
+    boxbraids: "From $200–$500",
+    twists: "From $200–$500",
+    cornrows: "From $180–$300",
+    kids: "From $100–$200",
+    men: "From $80–$160",
+  };
+
+  const BOOKING_NOTES = [
+    "Bring a reference photo if you have one.",
+    "Wash & blow-dry recommended before appointment.",
+    "Exact price depends on length & size — call/text to confirm.",
+  ];
+
   const LOCATION_LABEL = "Harlem, NYC";
   const MAIN_PHONE_TEL = "tel:6463995042";
 
@@ -187,6 +202,10 @@
 
             <div class="lb-rows">
               <div class="lb-row">
+                <span>Price</span>
+                <span>${STARTING_PRICES[catKey] || "Call for price"}</span>
+              </div>
+              <div class="lb-row">
                 <span>Braider</span>
                 <span id="lbBraider">Assigned stylist</span>
               </div>
@@ -196,12 +215,14 @@
               </div>
             </div>
 
-            <a class="lb-big-btn" href="${MAIN_PHONE_TEL}">Book This Style</a>
-
-            <div class="lb-phones">
-              Call/Text (646) 399-5042<br>
-              Secondary: (646) 648-4213
+            <div class="lb-notes">
+              <div class="lb-notes-title">Booking notes</div>
+              <ul class="lb-notes-list">
+                ${BOOKING_NOTES.map((item) => `<li>${item}</li>`).join("")}
+              </ul>
             </div>
+
+            <a class="lb-big-btn" href="${MAIN_PHONE_TEL}">Book This Style</a>
 
             <button class="lb-close" type="button">Close</button>
           </div>
