@@ -265,14 +265,15 @@
   justify-content: center;
   width: 100%;
   min-height: 48px;
-  border: 1px solid rgba(30,27,22,.12);
+  border: 1px solid rgba(30,27,22,.14);
   border-radius: var(--radius-pill);
-  background: var(--gold-2, #d4af37);
-  color: rgba(30,27,22,.92);
+  background: var(--gold, #b8962e);
+  color: rgba(30,27,22,.94);
   font-weight: 950;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 10px 18px rgba(0,0,0,.10);
 }
 
 .lb-big-btn:hover{
@@ -361,5 +362,4 @@
     width: 100%;
     max-height: calc(100vh - 20px);
   }
-  
 }
