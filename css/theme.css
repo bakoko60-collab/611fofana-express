@@ -42,12 +42,3 @@ h1, h2, h3 {
 .section-kicker {
   letter-spacing: 0.15em;
 }
-.cat-price {
-  font-size: 0.92rem !important;
-  color: var(--gold) !important;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  margin-top: 3px;
-  padding-bottom: 6px;
-  text-align: center;
-}
