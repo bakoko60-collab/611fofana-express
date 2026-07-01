@@ -98,10 +98,16 @@
 .hero-phone{
   width: max-content;
   justify-self: start;
-  color: rgba(30,27,22,.72);
-  font-size: .82rem;
-  font-weight: 720;
+  color: rgba(30,27,22,.66);
+  font-size: .8rem;
+  font-weight: 640;
   line-height: 1.1;
+  text-decoration: none;
+}
+
+.hero-phone:hover,
+.hero-phone:focus-visible{
+  color: rgba(30,27,22,.82);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -416,14 +422,14 @@
   .hero-phone-mobile{
     display: block;
     width: fit-content;
-    margin: 0 auto;
-    color: rgba(30,27,22,.72);
-    font-size: .82rem;
-    font-weight: 720;
-    line-height: 1.1;
+    margin: 2px auto 12px;
+    padding: 6px 8px;
+    color: rgba(30,27,22,.86);
+    font-size: .86rem;
+    font-weight: 760;
+    line-height: 1.15;
     text-align: center;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
   }
   .site-footer{
     margin-top: auto;
