@@ -43,8 +43,6 @@
   const pad2 = (n) => String(n).padStart(2, "0");
   const getParam = (name) => new URL(window.location.href).searchParams.get(name);
 
-  const braiderCache = new Map();
-
   /* -----------------------------------------------------
      Safety reset:
      if any earlier version left the page scroll-locked,
@@ -59,35 +57,6 @@
       return res.ok;
     } catch {
       return false;
-    }
-  }
-
-  function normalizeBraiderText(raw) {
-    const text = (raw || "").trim();
-    if (!text) return "";
-    const parts = text.split(":");
-    if (parts.length >= 2) return parts.slice(1).join(":").trim();
-    return text;
-  }
-
-  async function getBraider(catKey, num2) {
-    const cacheKey = `${catKey}/${num2}`;
-    if (braiderCache.has(cacheKey)) return braiderCache.get(cacheKey);
-
-    const txtUrl = `${ROOT}/${catKey}/${num2}.txt`;
-
-    try {
-      const res = await fetch(txtUrl, { cache: "no-store" });
-      if (!res.ok) {
-        braiderCache.set(cacheKey, "");
-        return "";
-      }
-      const value = normalizeBraiderText(await res.text());
-      braiderCache.set(cacheKey, value);
-      return value;
-    } catch {
-      braiderCache.set(cacheKey, "");
-      return "";
     }
   }
 
@@ -206,10 +175,6 @@
                 <span>${STARTING_PRICES[catKey] || "Call for price"}</span>
               </div>
               <div class="lb-row">
-                <span>Braider</span>
-                <span id="lbBraider">Assigned stylist</span>
-              </div>
-              <div class="lb-row">
                 <span>Location</span>
                 <span>${LOCATION_LABEL}</span>
               </div>
@@ -234,7 +199,6 @@
 
     const img = modal.querySelector(".lb-img");
     const photoEl = modal.querySelector("#lbPhoto");
-    const braiderEl = modal.querySelector("#lbBraider");
     const closeBtn = modal.querySelector(".lb-close");
 
     function closeModal() {
@@ -257,10 +221,6 @@
       async open(jpgUrl, num2) {
         img.src = jpgUrl;
         photoEl.textContent = `Photo #${num2}`;
-
-        const braider = await getBraider(catKey, num2);
-        braiderEl.textContent = braider || "Assigned stylist";
-
         modal.classList.add("is-open");
       }
     };
