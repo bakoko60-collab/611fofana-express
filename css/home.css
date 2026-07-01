@@ -95,6 +95,21 @@
   font-weight: 900;
 }
 
+.hero-phone{
+  width: max-content;
+  justify-self: start;
+  color: rgba(30,27,22,.72);
+  font-size: .82rem;
+  font-weight: 720;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-phone-mobile{
+  display: none;
+}
+
 .hero-visual{
   position: absolute;
   inset: 0;
@@ -393,6 +408,23 @@
   justify-content: center;
   align-items: center;
 }
+
+  .hero-phone{
+    display: none;
+  }
+
+  .hero-phone-mobile{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: rgba(30,27,22,.72);
+    font-size: .82rem;
+    font-weight: 720;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
   .site-footer{
     margin-top: auto;
   }
