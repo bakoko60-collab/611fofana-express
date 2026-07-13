@@ -51,14 +51,16 @@
   document.documentElement.style.overflow = "";
   document.body.style.overflow = "";
 
-  async function fileExists(url) {
-    try {
-      const res = await fetch(url, { method: "HEAD", cache: "no-store" });
-      return res.ok;
-    } catch {
-      return false;
-    }
-  }
+  function fileExists(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+
+    img.src = url;
+  });
+}
 
   function initGalleryLanding() {
     const grid = byId("galleryGrid");
@@ -118,12 +120,16 @@
     let i = 1;
     let loadedAny = false;
 
-    while (true) {
+    while (i <= 20) {
       const num2 = pad2(i);
       const jpgUrl = `${ROOT}/${catKey}/${num2}.jpg`;
 
-      const ok = await fileExists(jpgUrl);
-      if (!ok) break;
+    const ok = await fileExists(jpgUrl);
+
+if (!ok) {
+  i++;
+  continue;
+}
 
       loadedAny = true;
 
@@ -135,7 +141,7 @@
       const img = document.createElement("img");
       img.src = jpgUrl;
       img.alt = `${found.label} ${num2}`;
-
+      img.onerror = () => card.remove();
       card.appendChild(img);
 
       card.addEventListener("click", async () => {
