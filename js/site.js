@@ -18,16 +18,16 @@
 
   const headerHTML = `
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Fofana Express Hair Braiding home">
+      <a class="brand" href="/" aria-label="Fofana Express Hair Braiding home">
         <div class="brand-mark">FE</div>
         <div class="brand-name">Fofana Express Hair Braiding</div>
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" data-nav="index.html">Home</a>
-        <a href="about.html" data-nav="about.html">About</a>
-        <a href="gallery.html" data-nav="gallery.html">Galleries</a>
-        <a href="contact.html" data-nav="contact.html">Contact</a>
+        <a href="/" data-nav="/">Home</a>
+        <a href="/about/" data-nav="/about/">About</a>
+        <a href="/gallery/" data-nav="/gallery/">Galleries</a>
+        <a href="/contact/" data-nav="/contact/">Contact</a>
       </nav>
 
       <div class="header-right">
@@ -61,11 +61,19 @@
   if (header) header.innerHTML = headerHTML;
   if (footer) footer.innerHTML = footerHTML;
 
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const normalizePath = (value) => {
+    let path = String(value || "").toLowerCase().split("?")[0].split("#")[0];
+    if (!path.startsWith("/")) path = `/${path}`;
+    path = path.replace(/\/index\.html$/, "/");
+    path = path.replace(/\.html$/, "");
+    path = path.replace(/\/+$/, "");
+    return path || "/";
+  };
+
+  const currentPath = normalizePath(window.location.pathname);
   document.querySelectorAll("[data-nav]").forEach((a) => {
-    const href = (a.getAttribute("data-nav") || "").toLowerCase();
-    if (href === path) a.classList.add("is-active");
-    if (path === "" && href === "index.html") a.classList.add("is-active");
+    const navPath = normalizePath(a.getAttribute("data-nav"));
+    if (navPath === currentPath) a.classList.add("is-active");
   });
 
   const y = document.getElementById("year");
