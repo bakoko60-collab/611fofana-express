@@ -37,7 +37,7 @@
   const MAIN_PHONE_TEL = "tel:6463995042";
 
   const ROOT = "images/gallery";
-  const CATEGORY_PAGE = "categories.html";
+  const CATEGORY_PAGE = "/categories/";
 
   const byId = (id) => document.getElementById(id);
   const pad2 = (n) => String(n).padStart(2, "0");
@@ -52,15 +52,15 @@
   document.body.style.overflow = "";
 
   function fileExists(url) {
-  return new Promise((resolve) => {
-    const img = new Image();
+    return new Promise((resolve) => {
+      const img = new Image();
 
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
 
-    img.src = url;
-  });
-}
+      img.src = url;
+    });
+  }
 
   function initGalleryLanding() {
     const grid = byId("galleryGrid");
@@ -124,12 +124,12 @@
       const num2 = pad2(i);
       const jpgUrl = `${ROOT}/${catKey}/${num2}.jpg`;
 
-    const ok = await fileExists(jpgUrl);
+      const ok = await fileExists(jpgUrl);
 
-if (!ok) {
-  i++;
-  continue;
-}
+      if (!ok) {
+        i++;
+        continue;
+      }
 
       loadedAny = true;
 
