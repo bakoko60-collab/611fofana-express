@@ -25,9 +25,9 @@
 
       <nav class="nav" aria-label="Primary">
         <a href="/" data-nav="/">Home</a>
-        <a href="/about/" data-nav="/about/">About</a>
-        <a href="/gallery/" data-nav="/gallery/">Galleries</a>
-        <a href="/contact/" data-nav="/contact/">Contact</a>
+        <a href="/about" data-nav="/about">About</a>
+        <a href="/gallery" data-nav="/gallery">Galleries</a>
+        <a href="/contact" data-nav="/contact">Contact</a>
       </nav>
 
       <div class="header-right">
