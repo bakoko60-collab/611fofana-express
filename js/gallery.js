@@ -37,7 +37,7 @@
   const MAIN_PHONE_TEL = "tel:6463995042";
 
   const ROOT = "images/gallery";
-  const CATEGORY_PAGE = "/categories/";
+  const CATEGORY_PAGE = "/categories";
 
   const byId = (id) => document.getElementById(id);
   const pad2 = (n) => String(n).padStart(2, "0");
