@@ -1,8 +1,75 @@
 /* =========================================================
-   SITE.JS — Shared Header/Footer injection (GLOBAL)
+   SITE.JS — Shared site controls + header/footer injection
    ========================================================= */
 
 (function () {
+  // Temporary public visibility switch.
+  // false = show only the unavailable notice on every site page.
+  // true  = restore the complete website immediately.
+  const SITE_VISIBLE = false;
+
+  if (!SITE_VISIBLE) {
+    const style = document.createElement("style");
+    style.textContent = `
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #f7f3ea;
+        color: #1f2d27;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .temporary-unavailable {
+        width: min(680px, calc(100% - 40px));
+        padding: 56px 28px;
+        text-align: center;
+      }
+
+      .temporary-unavailable__mark {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 24px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #1f2d27;
+        color: #f7f3ea;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .temporary-unavailable h1 {
+        margin: 0 0 14px;
+        font-size: clamp(30px, 6vw, 48px);
+        line-height: 1.08;
+      }
+
+      .temporary-unavailable p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.body.innerHTML = `
+      <main class="temporary-unavailable" role="main" aria-labelledby="temporaryUnavailableTitle">
+        <div class="temporary-unavailable__mark" aria-hidden="true">FE</div>
+        <h1 id="temporaryUnavailableTitle">Website Temporarily Unavailable</h1>
+        <p>Please check back later.</p>
+      </main>
+    `;
+
+    return;
+  }
+
   const header = document.getElementById("siteHeader");
   const footer = document.getElementById("siteFooter");
 
